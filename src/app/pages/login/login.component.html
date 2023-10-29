@@ -7,10 +7,7 @@
         <mat-form-field>
             <mat-label>Tipo de Documento</mat-label>
             <mat-select formControlName="tipo" matNativeControl>
-                <mat-option value="volvo" selected>DNI</mat-option>
-                <mat-option value="saab">Libreta de Enrolamiento</mat-option>
-                <mat-option value="mercedes">Libreta Cívica</mat-option>
-                <mat-option value="audi">Otros</mat-option>
+                <mat-option *ngFor="let tipo of tiposDni | keyvalue" [value]="tipo.key">{{tipo.value}}</mat-option>
             </mat-select>
             <mat-error *ngIf="constancia.get('tipo')?.hasError('required') && constancia.get('tipo')?.touched">Tipo de
                 dni requerido</mat-error>
@@ -18,26 +15,25 @@
 
         <mat-form-field>
             <mat-label>Número de documento</mat-label>
-            <input matInput placeholder="**********" formControlName="dni" required>
+            <input matInput mask="00.000.000" formControlName="dni" required>
             <mat-error *ngIf="constancia.get('dni')?.hasError('required') && constancia.get('dni')?.touched">Dni requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="**********" formControlName="nombre" required>
+            <input matInput formControlName="nombre" required>
             <mat-error *ngIf="constancia.get('dni')?.hasError('required') && constancia.get('dni')?.touched">Nombre requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Apellido</mat-label>
-            <input matInput placeholder="**********" formControlName="apellido" required>
+            <input matInput formControlName="apellido" required>
             <mat-error *ngIf="constancia.get('apellido')?.hasError('required') && constancia.get('apellido')?.touched">Apellido requerido</mat-error>
         </mat-form-field>
 
         <mat-label id="example-radio-group-label">Sexo</mat-label>
         <mat-radio-group formControlName="sexo" aria-label="Select an option">
-            <mat-radio-button value="1">Masculino</mat-radio-button>
-            <mat-radio-button value="2">Femenino</mat-radio-button>
+            <mat-radio-button *ngFor="let sexo of sexos | keyvalue" [value]="sexo.key">{{sexo.value}}</mat-radio-button>
         </mat-radio-group>
         <mat-error *ngIf="constancia.get('sexo')?.hasError('required') && constancia.get('sexo')?.touched">Sexo requerido</mat-error>
 
@@ -53,7 +49,7 @@
 
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput placeholder="**********" formControlName="email" required>
+            <input matInput formControlName="email" required>
             <mat-error *ngIf="constancia.get('email')?.hasError('required') && constancia.get('email')?.touched">Email requerido</mat-error>
         </mat-form-field>
 

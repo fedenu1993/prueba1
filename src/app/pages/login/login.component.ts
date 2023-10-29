@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from 'src/app/components/login-dialog/login-dialog.component';
+import { dni_tipo, sexo } from 'src/app/models/Login.model';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +21,21 @@ export class LoginComponent implements OnInit{
     email: new FormControl('', [Validators.required, Validators.email])
   });
 
+  // tiposDni = Object.keys(dni_tipo).map((key: string) => ({
+  //   key: key,
+  //   value: dni_tipo[key],
+  //   selected: (key == 'dni')
+  // }));
+
+  tiposDni = dni_tipo;
+  sexos = sexo;
+  
+  constructor(
+    public dialog: MatDialog
+  ){}
+
   ngOnInit() {
-    console.log("init");
+    console.log("init", this.tiposDni);
 
     this.constancia.valueChanges.subscribe((changes)=>{
       console.log(changes)
@@ -28,6 +44,16 @@ export class LoginComponent implements OnInit{
 
   enviar(){
     console.log(this.constancia)
+    this.openDialog()
   }
+
+  openDialog(){
+    this.dialog.open(LoginDialogComponent, {
+      data: this.constancia.value,
+    });
+  }
+
   
 }
+
+
