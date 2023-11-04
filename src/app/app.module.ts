@@ -14,6 +14,7 @@ import { MaterialModule } from './shared/material.module';
 // Date import
 import localeAr from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
+import { NavbarComponent } from './components/navbar/navbar.component';
 registerLocaleData(localeAr, 'es');
 
 
@@ -22,7 +23,8 @@ registerLocaleData(localeAr, 'es');
     AppComponent,
     LoginComponent,
     TableComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

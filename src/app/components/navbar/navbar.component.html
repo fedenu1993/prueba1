@@ -1,0 +1,33 @@
+<mat-drawer-container class="drawer-container" autosize>
+    <mat-drawer #drawer class="drawer-sidenav" mode="push">
+        <div class="sidenav">
+            <button (click)="drawer.toggle()" mat-button>
+                <mat-icon>close</mat-icon>
+            </button>
+            <div routerLinkActive="active-mobile" [routerLink]="['/login']" mat-flat-button color="primary">
+                <span  class="routes">Formulario</span>
+            </div>
+            <div routerLinkActive="active-mobile" [routerLink]="['/table']" mat-flat-button color="primary">
+                <span  class="routes">Tabla</span>
+            </div>
+        </div>
+    </mat-drawer>
+</mat-drawer-container>
+
+
+<mat-toolbar class="toolbar" color="primary">
+    <mat-toolbar-row>
+        <span>App</span>
+        <span class="spacer"></span>
+        <ng-container *ngIf="resolution > 800; else menu">
+            <span routerLinkActive="active" [routerLink]="['/login']" class="routes">Formulario</span>
+            <span routerLinkActive="active" [routerLink]="['/table']" class="routes">Tabla</span>
+        </ng-container>
+        <ng-template #menu>
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </ng-template>
+        <!-- <mat-icon class="example-icon">delete</mat-icon> -->
+    </mat-toolbar-row>
+</mat-toolbar>

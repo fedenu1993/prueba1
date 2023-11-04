@@ -12,9 +12,7 @@ export class LoginDialogComponent implements OnInit {
 
   
   ngOnInit() {
-    console.log('dialog', this.data);
-    this.data.image = `../../../assets/images/login-dialog/${this.data.sexo}_${Math.floor(Math.random() * 3) + 1}.jpg`
-    console.log(this.data.image)
+    this.data.image = `./assets/images/login-dialog/${this.data.sexo}_${Math.floor(Math.random() * 3) + 1}.jpg`
   }
 
 }
