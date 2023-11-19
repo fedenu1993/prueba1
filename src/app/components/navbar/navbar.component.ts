@@ -18,7 +18,7 @@ export class NavbarComponent {
     // sm (for tablets - screens equal to or greater than 768px wide)
     // xs (for phones - screens less than 768px wide)
   
-    console.log('entro', window.innerWidth, this.resolution)
+    // console.log('entro', window.innerWidth, this.resolution)
     this.resolution = window.innerWidth;
     
   }

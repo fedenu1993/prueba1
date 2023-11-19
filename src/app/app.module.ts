@@ -15,8 +15,9 @@ import { MaterialModule } from './shared/material.module';
 import localeAr from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AgePipe } from './pipes/age.pipe';
 registerLocaleData(localeAr, 'es');
-
 
 @NgModule({
   declarations: [
@@ -24,9 +25,11 @@ registerLocaleData(localeAr, 'es');
     LoginComponent,
     TableComponent,
     LoginDialogComponent,
-    NavbarComponent
+    NavbarComponent,
+    AgePipe
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -45,4 +48,5 @@ registerLocaleData(localeAr, 'es');
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -36,13 +36,11 @@ export class LoginComponent implements OnInit{
 
   ngOnInit() {
     this.constancia.valueChanges.subscribe((changes)=>{
-      // console.log(changes)
     })
   }
 
   // Submit
   enviar(){
-    // console.log(this.constancia)
     this.openDialog()
   }
 
